@@ -9,7 +9,7 @@ class ServiceRunner(dl.BaseServiceRunner):
 
     def create_image_prompt(self, item: dl.Item, dataset: dl.Dataset, directory: str) -> dl.Item:
         if 'image' in item.mimetype:
-            image_name = os.path.splitext(item.filename)[0]
+            image_name = os.path.splitext(item.name)[0]
             prompt_item = dl.PromptItem(name=f"image_prompt_{image_name}")
             prompt = dl.Prompt(key="image")
             prompt.add(mimetype=dl.PromptType.IMAGE, value=item.stream)
