@@ -1,0 +1,109 @@
+{
+  "displayName": "Create Prompt",
+  "name": "create-prompt",
+  "scope": "public",
+  "version": "0.0.1",
+  "description": "Service to generate prompt items out of other items",
+  "attributes": {
+    "Provider": "Dataloop",
+    "Category": "Pipeline",
+    "Pipeline Type": "Node",
+    "Node Type": "Data"
+  },
+  "codebase": {
+    "type": "git",
+    "gitUrl": "https://github.com/dataloop-ai-apps/create-prompt.git",
+    "gitTag": "0.0.1"
+  },
+  "components": {
+    "pipelineNodes": [
+      {
+        "invoke": {
+          "type": "function",
+          "namespace": "create-prompt-service.create-prompt-module.create_image_prompt"
+        },
+        "name": "Create Prompt Item",
+        "categories": [
+          "Prompt Item"
+        ],
+        "displayName": "Create Image Prompt",
+        "description": "Create prompt item from an input image item.",
+        "scope": "node",
+        "configuration": {
+          "fields": [
+            {
+              "name": "name",
+              "title": "Node Name",
+              "props": {
+                "title": true,
+                "type": "string",
+                "default": "Create Image Prompt",
+                "required": true,
+                "placeholder": "Insert node name"
+              },
+              "rules": [
+                {
+                  "type": "required",
+                  "effect": "error"
+                }
+              ],
+              "widget": "dl-input"
+            }
+          ]
+        }
+      }
+    ],
+    "modules": [
+      {
+        "name": "create-prompt-module",
+        "entryPoint": "create_prompt.py",
+        "className": "ServiceRunner",
+        "initInputs": [],
+        "functions": [
+          {
+            "name": "create_image_prompt",
+            "input": [
+              {
+                "type": "Item",
+                "name": "item"
+              },
+              {
+                "type": "Dataset",
+                "name": "dataset"
+              },
+              {
+                "type": "String",
+                "name": "directory"
+              }
+            ],
+            "output": [
+              {
+                "type": "Item",
+                "name": "prompt_item"
+              }
+            ],
+            "displayName": "Create Image Prompt"
+          }
+        ]
+      }
+    ],
+    "services": [
+      {
+        "name": "create-prompt-service",
+        "moduleName": "create-prompt-module",
+        "secrets": [
+        ],
+        "runtime": {
+          "podType": "regular-xs",
+          "concurrency": 10,
+          "autoscaler": {
+            "minReplicas": 0,
+            "maxReplicas": 2,
+            "queueLength": 10
+          }
+        },
+        "operation": "none"
+      }
+    ]
+  }
+}
