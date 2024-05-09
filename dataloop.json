@@ -1,9 +1,9 @@
 {
   "displayName": "Prompt Item Tools",
-  "name": "prompt-item-tools",
+  "name": "prompt-item-tools-app",
   "scope": "public",
   "version": "0.1.2",
-  "description": "Service to generate prompt items out of other items",
+  "description": "Pipeline tools to help in creating and manipulating prompt items.",
   "attributes": {
     "Provider": "Dataloop",
     "Category": "Pipeline",
