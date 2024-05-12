@@ -116,14 +116,14 @@
       {
         "invoke": {
           "type": "function",
-          "namespace": "ptserv.create-prompt-module.create_prompt_from_subtitle_annotations"
+          "namespace": "ptserv.create-prompt-module.create_prompt_from_item_annotations"
         },
-        "name": "Create Prompt from Subtitle",
+        "name": "Create Prompt from Item Annotations",
         "categories": [
           "Prompt Item Tools"
         ],
-        "displayName": "Create Prompt from Subtitle",
-        "description": "Create prompt item from subtitle annotation in an item.",
+        "displayName": "Create Prompt from Item Annotations",
+        "description": "Create prompt item from annotations in input item.",
         "scope": "node",
         "configuration": {
           "fields": [
@@ -133,7 +133,7 @@
               "props": {
                 "title": true,
                 "type": "string",
-                "default": "Create Prompt from Subtitle",
+                "default": "Create Prompt from Item Annotations",
                 "required": true,
                 "placeholder": "Insert node name"
               },
@@ -144,6 +144,33 @@
                 }
               ],
               "widget": "dl-input"
+            },
+            {
+              "name": "annotation_type",
+              "title": "Annotation Type",
+              "props": {
+                "title": true,
+                "type": "string",
+                "default": "text",
+                "required": true,
+                "options": [
+                  {
+                    "value": "text",
+                    "label": "Text"
+                  },
+                  {
+                    "value": "subtitle",
+                    "label": "Subtitle"
+                  }
+                ]
+              },
+              "rules": [
+                {
+                  "type": "required",
+                  "effect": "error"
+                }
+              ],
+              "widget": "dl-select"
             },
             {
               "name": "prompt_text",
@@ -212,14 +239,14 @@
       {
         "invoke": {
           "type": "function",
-          "namespace": "ptserv.create-prompt-module.create_prompt_from_text_annotations"
+          "namespace": "ptserv.create-prompt-module.create_prompt_from_annotation"
         },
-        "name": "Create Prompt from Text Annotations",
+        "name": "Create Prompt from Annotation",
         "categories": [
           "Prompt Item Tools"
         ],
-        "displayName": "Create Prompt from Text Annotations",
-        "description": "Create prompt item from text annotations in input item.",
+        "displayName": "Create Prompt from Annotation",
+        "description": "Create prompt item from input annotation.",
         "scope": "node",
         "configuration": {
           "fields": [
@@ -229,7 +256,7 @@
               "props": {
                 "title": true,
                 "type": "string",
-                "default": "Create Prompt from Text Annotations",
+                "default": "Create Prompt from Input Annotation",
                 "required": true,
                 "placeholder": "Insert node name"
               },
@@ -331,7 +358,7 @@
             "displayIcon": "icon-dl-conversation"
           },
           {
-            "name": "create_prompt_from_subtitle_annotations",
+            "name": "create_prompt_from_item_annotations",
             "input": [
               {
                 "type": "Item",
@@ -344,15 +371,15 @@
                 "name": "prompt_item"
               }
             ],
-            "displayName": "Create Prompt from Subtitle",
+            "displayName": "Create Prompt from Item's annotations",
             "displayIcon": "icon-dl-conversation"
           },
           {
-            "name": "create_prompt_from_text_annotations",
+            "name": "create_prompt_from_annotation",
             "input": [
               {
-                "type": "Item",
-                "name": "item"
+                "type": "Annotation",
+                "name": "annotation"
               }
             ],
             "output": [
@@ -361,7 +388,7 @@
                 "name": "prompt_item"
               }
             ],
-            "displayName": "Create Prompt from Text Annotation",
+            "displayName": "Create Prompt from Input Annotation",
             "displayIcon": "icon-dl-conversation"
           }
         ]

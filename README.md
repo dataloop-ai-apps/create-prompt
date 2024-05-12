@@ -5,8 +5,8 @@ Create Dataloop prompt items from items or annotations. You can install it from 
 This app includes 3 pipeline nodes that can be used to create prompt items from a pipeline:
 
 * **Create Prompt from Item**: Takes a media item (text, image or video) as input and generates a prompt item accordingly;
-* **Create Prompt from Text Annotation**: Takes a prompt item and generates a subsequent prompt item based on its text annotations;
-* **Create Prompt from Subtitle**: Takes an audio item with subtitle/transcription and generates a prompt item with its subtitle;
+* **Create Prompt from Item Annotation**: Takes an item and generates a subsequent prompt item based on its annotations;
+* **Create Prompt from Annotation**: Takes an annotation and creates a prompt item based on it;
 
 For example, consider the following text item:
 <img width="1507" alt="image" src="https://github.com/dataloop-ai-apps/prompt-tools/assets/124260926/2a98a367-166e-40f1-b3b9-432a1841e153">
@@ -31,3 +31,7 @@ The three nodes contain the same configurations:
 * **Combine texts**: Boolean option. If set to true, it will combine the prompt context to any text input in a single prompt. If set to false, the prompt context will be ignored. True by default;
 * **Prefix**: The prompt item will be generated with the original file's name and this prefix added to it. The default is "prompt-"
 * **Directory**: The prompt item will be saved in the original item's dataset, in the directory specified here. The default is "/.dataloop/prompts/" which is a hidden directory.
+
+Additionally, the ```Create Prompt Item from Item Annotations``` contain this additional configuration option:
+
+* **Annotation Type**: selection between the two types of annotation currently supported for prompt items: text and subtitle.
