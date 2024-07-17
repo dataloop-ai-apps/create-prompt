@@ -6,9 +6,10 @@
   "description": "Pipeline tools to help in creating and manipulating prompt items.",
   "attributes": {
     "Provider": "Dataloop",
-    "Category": "Pipeline",
-    "Pipeline Type": "Node",
-    "Node Type": "Data"
+    "Category": "Application",
+    "Application Type": [
+      "Pipeline Node"
+    ]
   },
   "codebase": {
     "type": "git",
@@ -398,8 +399,7 @@
       {
         "name": "ptserv",
         "moduleName": "create-prompt-module",
-        "secrets": [
-        ],
+        "secrets": [],
         "runtime": {
           "podType": "regular-xs",
           "concurrency": 10,
