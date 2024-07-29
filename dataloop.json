@@ -2,7 +2,7 @@
   "displayName": "Prompt Item Tools",
   "name": "prompt-item-tools-app",
   "scope": "public",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Pipeline tools to help in creating and manipulating prompt items.",
   "attributes": {
     "Provider": "Dataloop",
@@ -18,7 +18,7 @@
   "codebase": {
     "type": "git",
     "gitUrl": "https://github.com/dataloop-ai-apps/create-prompt.git",
-    "gitTag": "0.1.4"
+    "gitTag": "0.1.5"
   },
   "components": {
     "pipelineNodes": [
