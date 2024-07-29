@@ -9,6 +9,10 @@
     "Category": "Application",
     "Application Type": [
       "Pipeline Node"
+    ],
+    "Media Type": [
+      "Text",
+      "Image"
     ]
   },
   "codebase": {
